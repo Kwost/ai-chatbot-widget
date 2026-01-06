@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assistant IA - La Pépite | Démo Interactive</title>
+  <title>Assistant IA - La Pépite | Démo Exclusive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,245 +13,537 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Montserrat', sans-serif;
+      background: #fafafa;
       min-height: 100vh;
+    }
+
+    /* Header élégant */
+    .header {
+      background: #2c2c2c;
+      padding: 20px 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
+      justify-content: space-between;
     }
 
-    .container {
-      max-width: 900px;
-      width: 100%;
-      background: white;
-      border-radius: 24px;
-      padding: 60px 40px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      text-align: center;
-    }
-
-    .logo {
-      font-size: 64px;
-      margin-bottom: 20px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-
-    h1 {
-      font-size: 42px;
-      color: #1f2937;
-      margin-bottom: 16px;
-      font-weight: 700;
-    }
-
-    .brand {
-      color: #764ba2;
-      font-weight: 800;
-    }
-
-    .subtitle {
-      font-size: 20px;
-      color: #6b7280;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      margin: 40px 0;
-      text-align: left;
-    }
-
-    .feature {
-      padding: 24px;
-      background: #f5f3ff;
-      border-radius: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 2px solid #e9d5ff;
-    }
-
-    .feature:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(118, 75, 162, 0.2);
-    }
-
-    .feature-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .feature-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 8px;
-    }
-
-    .feature-desc {
-      font-size: 14px;
-      color: #6b7280;
-      line-height: 1.5;
-    }
-
-    .cta {
-      display: inline-flex;
+    .logo-container {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 16px 32px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border-radius: 12px;
-      font-size: 18px;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      font-size: 32px;
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
       font-weight: 600;
-      margin-top: 30px;
-      box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: none;
+      color: #d4af37;
+      letter-spacing: 1px;
     }
 
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(102, 126, 234, 0.5);
-    }
-
-    .arrow {
-      font-size: 24px;
-      animation: bounce 1s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(5px); }
-    }
-
-    .demo-badge {
-      display: inline-block;
-      background: #764ba2;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 14px;
+    .header-badge {
+      background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+      color: #2c2c2c;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 12px;
       font-weight: 600;
-      margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
+    /* Hero Section - Élégant */
+    .hero {
+      background: linear-gradient(135deg, #2c2c2c 0%, #4a4a4a 100%);
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23d4af37" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.3);
+      line-height: 1.2;
+    }
+
+    .hero .accent {
+      color: #d4af37;
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 750px;
+      margin: 0 auto 50px;
+      opacity: 0.9;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 50px;
+      background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+      color: #2c2c2c;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border: none;
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Container principal */
+    .container {
+      max-width: 1200px;
+      margin: -80px auto 80px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Section blanche élégante */
+    .content-box {
+      background: white;
+      border-radius: 30px;
+      padding: 70px 50px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      color: #2c2c2c;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .subtitle-section {
+      text-align: center;
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      line-height: 1.8;
+    }
+
+    .brand {
+      color: #d4af37;
+      font-weight: 700;
+    }
+
+    /* Features Grid - Plus élégant */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+      margin: 60px 0;
+    }
+
+    .feature {
+      padding: 40px 35px;
+      background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+      border-radius: 20px;
+      transition: all 0.4s ease;
+      border: 2px solid #f0f0f0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #d4af37 0%, #f4d03f 100%);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+      border-color: #d4af37;
+    }
+
+    .feature:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-icon {
+      font-size: 52px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .feature-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-bottom: 15px;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: #6b7280;
+      line-height: 1.8;
+    }
+
+    /* Section Histoire */
+    .heritage-section {
+      background: linear-gradient(135deg, #2c2c2c 0%, #4a4a4a 100%);
+      padding: 60px;
+      border-radius: 25px;
+      margin-top: 70px;
+      color: white;
+      text-align: center;
+    }
+
+    .heritage-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #d4af37;
+    }
+
+    .heritage-text {
+      font-size: 17px;
+      line-height: 1.9;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    /* Info pratiques - Style luxe */
+    .info-section {
+      background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+      padding: 60px;
+      border-radius: 25px;
+      margin-top: 60px;
+      border: 2px solid #f0f0f0;
+    }
+
+    .info-section h2 {
+      margin-bottom: 50px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+
+    .info-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .info-icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .info-label {
+      font-size: 13px;
+      color: #d4af37;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .info-value {
+      font-size: 16px;
+      color: #2c2c2c;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 50px 20px;
+      color: #9ca3af;
+      font-size: 14px;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 60px;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      body {
-        padding: 16px;
+      .header {
+        padding: 15px 20px;
+      }
+
+      .logo-text {
+        font-size: 24px;
+      }
+
+      .logo-icon {
+        font-size: 28px;
+      }
+
+      .header-badge {
+        font-size: 10px;
+        padding: 6px 14px;
+      }
+
+      .hero {
+        padding: 70px 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .cta-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 18px 40px;
+        font-size: 16px;
       }
 
       .container {
-        padding: 32px 20px;
-        border-radius: 16px;
+        margin: -50px 20px 50px;
       }
 
-      .logo {
-        font-size: 48px;
+      .content-box {
+        padding: 45px 30px;
+        border-radius: 20px;
       }
 
-      h1 {
-        font-size: 28px;
-        margin-bottom: 12px;
+      h2 {
+        font-size: 32px;
       }
 
-      .subtitle {
+      .subtitle-section {
         font-size: 16px;
-        margin-bottom: 30px;
       }
 
       .features {
         grid-template-columns: 1fr;
-        gap: 16px;
-        margin: 30px 0;
+        gap: 25px;
       }
 
       .feature {
-        padding: 20px;
+        padding: 35px 28px;
       }
 
-      .feature-icon {
+      .heritage-section {
+        padding: 40px 30px;
+      }
+
+      .heritage-section h3 {
         font-size: 28px;
       }
 
-      .feature-title {
-        font-size: 16px;
+      .heritage-text {
+        font-size: 15px;
       }
 
-      .feature-desc {
-        font-size: 13px;
+      .info-section {
+        padding: 45px 30px;
       }
 
-      .cta {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 28px;
-        font-size: 16px;
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
     }
+
+    /* Animation raffinée */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature {
+      animation: fadeInUp 0.7s ease backwards;
+    }
+
+    .feature:nth-child(1) { animation-delay: 0.1s; }
+    .feature:nth-child(2) { animation-delay: 0.2s; }
+    .feature:nth-child(3) { animation-delay: 0.3s; }
+    .feature:nth-child(4) { animation-delay: 0.4s; }
+    .feature:nth-child(5) { animation-delay: 0.5s; }
+    .feature:nth-child(6) { animation-delay: 0.6s; }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo-container">
+        <span class="logo-icon">✨</span>
+        <div class="logo-text">La Pépite</div>
+      </div>
+      <div class="header-badge">💎 Démo Exclusive</div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Votre Conseiller Virtuel<br><span class="accent">La Pépite</span></h1>
+      <p>
+        Offrez une expérience client d'exception avec votre assistant intelligent disponible 24/7.
+        Valorisez vos créations uniques et l'héritage de 4 générations de savoir-faire.
+      </p>
+      <button class="cta-primary" onclick="alert('👋 Cliquez sur le bouton 💬 en bas à droite pour découvrir l\'assistant !')">
+        ✨ Découvrir l'assistant
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenu principal -->
   <div class="container">
-    <div class="demo-badge">💎 Démo Exclusive</div>
-    <div class="logo">✨</div>
-    <h1>Assistant IA <span class="brand">La Pépite</span></h1>
-    <p class="subtitle">
-      Découvrez votre assistant intelligent disponible 24/7 pour offrir une expérience client d'exception et valoriser vos créations uniques.
-    </p>
+    <div class="content-box">
+      <h2>L'Excellence au Service de <span class="brand">La Pépite</span></h2>
+      <p class="subtitle-section">
+        Un assistant intelligent qui reflète le raffinement et l'expertise de votre bijouterie,
+        pour accompagner chaque cliente dans la découverte de sa pépite.
+      </p>
 
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">🤖</div>
-        <div class="feature-title">Intelligence Artificielle Premium</div>
-        <div class="feature-desc">Propulsé par GPT-4, votre assistant comprend les attentes raffinées de votre clientèle.</div>
-      </div>
-      
-      <div class="feature">
-        <div class="feature-icon">💬</div>
-        <div class="feature-title">Expérience personnalisée</div>
-        <div class="feature-desc">Chaque conversation est mémorisée pour créer un parcours client sur-mesure.</div>
-      </div>
-      
-      <div class="feature">
-        <div class="feature-icon">⚡</div>
-        <div class="feature-title">Disponibilité permanente</div>
-        <div class="feature-desc">Vos clientes reçoivent des réponses instantanées, à toute heure du jour et de la nuit.</div>
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">🤖</span>
+          <div class="feature-title">Intelligence Premium</div>
+          <div class="feature-desc">Propulsé par GPT-4, comprend les attentes raffinées de votre clientèle et valorise vos créations avec élégance.</div>
+        </div>
+        
+        <div class="feature">
+          <span class="feature-icon">💬</span>
+          <div class="feature-title">Expérience Sur-Mesure</div>
+          <div class="feature-desc">Chaque conversation est mémorisée pour créer un parcours client personnalisé, digne d'une maison de joaillerie.</div>
+        </div>
+        
+        <div class="feature">
+          <span class="feature-icon">⚡</span>
+          <div class="feature-title">Disponibilité Permanente</div>
+          <div class="feature-desc">Vos clientes reçoivent des réponses expertes 24/7, même en dehors de vos horaires d'ouverture.</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">✨</span>
+          <div class="feature-title">Ton Élégant</div>
+          <div class="feature-desc">Adapté à l'univers sophistiqué de La Pépite, avec l'expertise d'un conseiller en joaillerie et le charme français.</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">📊</span>
+          <div class="feature-title">Insights Précieux</div>
+          <div class="feature-desc">Comprenez les désirs et attentes de votre clientèle pour affiner vos collections futures.</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">💰</span>
+          <div class="feature-title">Valorisation</div>
+          <div class="feature-desc">Augmentez vos conversions en guidant chaque cliente vers son bijou idéal avec un discours expert.</div>
+        </div>
       </div>
 
-      <div class="feature">
-        <div class="feature-icon">✨</div>
-        <div class="feature-title">Ton élégant et raffiné</div>
-        <div class="feature-desc">Adapté à l'univers sophistiqué de La Pépite, avec l'expertise d'un conseiller en joaillerie.</div>
+      <!-- Section héritage -->
+      <div class="heritage-section">
+        <h3>Un Héritage de 4 Générations</h3>
+        <p class="heritage-text">
+          Depuis 1920, la famille Pujol perpétue la tradition de la joaillerie à Toulouse. 
+          Charlotte Pujol, la créatrice de La Pépite, continue cet héritage en proposant des bijoux fantaisie 
+          de qualité, créés par des artisans français. Votre assistant virtuel connaît cette histoire 
+          et la transmet avec passion à vos clientes.
+        </p>
       </div>
 
-      <div class="feature">
-        <div class="feature-icon">📊</div>
-        <div class="feature-title">Insights clients précieux</div>
-        <div class="feature-desc">Comprenez les désirs et attentes de votre clientèle grâce aux données collectées.</div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">💰</div>
-        <div class="feature-title">Valorisation de vos pièces</div>
-        <div class="feature-desc">Augmentez vos conversions en guidant chaque cliente vers son bijou idéal.</div>
+      <!-- Informations pratiques -->
+      <div class="info-section">
+        <h2>📍 Maîtrise Parfaite de <span class="brand">La Pépite</span></h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-label">Adresse</div>
+            <div class="info-value">8 Place Roger Salengro<br>31000 Toulouse</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div class="info-label">Horaires</div>
+            <div class="info-value">Lun 14h-19h<br>Mar-Sam 11h-19h<br>Dim Fermé</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">💎</div>
+            <div class="info-label">Collections</div>
+            <div class="info-value">Argent 925, Plaqué Or<br>Pierres naturelles<br>45€-159€</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">✨</div>
+            <div class="info-label">Services</div>
+            <div class="info-value">Atelier Création<br>Livraison gratuite dès 50€<br>Retours 30j</div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
-    <button class="cta" onclick="alert('👋 Cliquez sur le bouton 💬 en bas à droite pour découvrir l\'assistant !')">
-      Découvrir l'assistant
-      <span class="arrow">→</span>
-    </button>
+  <!-- Footer -->
+  <div class="footer">
+    Prototype créé par Sofiane • TBS Business School • Spécialiste IA
   </div>
 
   <script 

@@ -1,12 +1,10 @@
-Demo pipelettes · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assistant IA - Les Pipelettes | Démo Interactive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,245 +13,401 @@ Copy
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fff;
       min-height: 100vh;
+    }
+
+    /* Header avec logo */
+    .header {
+      background: white;
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
+      justify-content: space-between;
     }
 
-    .container {
-      max-width: 900px;
-      width: 100%;
-      background: white;
-      border-radius: 24px;
-      padding: 60px 40px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-badge {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      padding: 80px 20px;
       text-align: center;
+      color: white;
     }
 
-    .logo {
-      font-size: 64px;
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
       margin-bottom: 20px;
-      animation: float 3s ease-in-out infinite;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.1);
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.95;
+      line-height: 1.6;
+      font-weight: 300;
     }
 
-    h1 {
-      font-size: 42px;
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 40px;
+      background: white;
+      color: #f5576c;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    /* Container principal */
+    .container {
+      max-width: 1200px;
+      margin: -60px auto 60px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Section blanche arrondie */
+    .content-box {
+      background: white;
+      border-radius: 30px;
+      padding: 60px 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 32px;
       color: #1f2937;
-      margin-bottom: 16px;
+      margin-bottom: 40px;
+      text-align: center;
       font-weight: 700;
     }
 
     .brand {
       color: #f5576c;
-      font-weight: 800;
+      font-weight: 700;
     }
 
-    .subtitle {
-      font-size: 20px;
-      color: #6b7280;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-
+    /* Features Grid */
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      margin: 40px 0;
-      text-align: left;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
     }
 
     .feature {
-      padding: 24px;
-      background: #fff5f7;
-      border-radius: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 2px solid #fce7eb;
+      padding: 35px 30px;
+      background: linear-gradient(135deg, #fff5f7 0%, #fef8fb 100%);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(245, 87, 108, 0.1);
+      text-align: center;
     }
 
     .feature:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(245, 87, 108, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(245, 87, 108, 0.15);
+      border-color: rgba(245, 87, 108, 0.3);
     }
 
     .feature-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
+      font-size: 48px;
+      margin-bottom: 20px;
+      display: block;
     }
 
     .feature-title {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
       color: #1f2937;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
     .feature-desc {
-      font-size: 14px;
+      font-size: 15px;
       color: #6b7280;
-      line-height: 1.5;
+      line-height: 1.7;
     }
 
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 16px 32px;
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      color: white;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 600;
+    /* Info pratiques */
+    .info-section {
+      background: linear-gradient(135deg, #fff 0%, #fef5f8 100%);
+      padding: 50px;
+      border-radius: 25px;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
       margin-top: 30px;
-      box-shadow: 0 8px 16px rgba(245, 87, 108, 0.4);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: none;
     }
 
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(245, 87, 108, 0.5);
+    .info-item {
+      text-align: center;
     }
 
-    .arrow {
-      font-size: 24px;
-      animation: bounce 1s infinite;
+    .info-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(5px); }
-    }
-
-    .demo-badge {
-      display: inline-block;
-      background: #f5576c;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
+    .info-label {
       font-size: 14px;
+      color: #f5576c;
       font-weight: 600;
-      margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-bottom: 8px;
     }
 
+    .info-value {
+      font-size: 16px;
+      color: #1f2937;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      body {
-        padding: 16px;
+      .header {
+        padding: 15px 20px;
+      }
+
+      .logo-text {
+        font-size: 22px;
+      }
+
+      .header-badge {
+        font-size: 11px;
+        padding: 6px 14px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .cta-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 32px;
+        font-size: 16px;
       }
 
       .container {
-        padding: 32px 20px;
-        border-radius: 16px;
+        margin: -40px 20px 40px;
       }
 
-      .logo {
-        font-size: 48px;
+      .content-box {
+        padding: 40px 25px;
+        border-radius: 20px;
       }
 
-      h1 {
-        font-size: 28px;
-        margin-bottom: 12px;
-      }
-
-      .subtitle {
-        font-size: 16px;
-        margin-bottom: 30px;
+      h2 {
+        font-size: 26px;
       }
 
       .features {
         grid-template-columns: 1fr;
-        gap: 16px;
-        margin: 30px 0;
+        gap: 20px;
       }
 
       .feature {
-        padding: 20px;
+        padding: 28px 24px;
       }
 
-      .feature-icon {
-        font-size: 28px;
+      .info-section {
+        padding: 35px 25px;
       }
 
-      .feature-title {
-        font-size: 16px;
-      }
-
-      .feature-desc {
-        font-size: 13px;
-      }
-
-      .cta {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 28px;
-        font-size: 16px;
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
       }
     }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature {
+      animation: fadeInUp 0.6s ease backwards;
+    }
+
+    .feature:nth-child(1) { animation-delay: 0.1s; }
+    .feature:nth-child(2) { animation-delay: 0.2s; }
+    .feature:nth-child(3) { animation-delay: 0.3s; }
+    .feature:nth-child(4) { animation-delay: 0.4s; }
+    .feature:nth-child(5) { animation-delay: 0.5s; }
+    .feature:nth-child(6) { animation-delay: 0.6s; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="demo-badge">🎁 Démo Gratuite</div>
-    <div class="logo">💎</div>
-    <h1>Assistant IA <span class="brand">Les Pipelettes</span></h1>
-    <p class="subtitle">
-      Découvrez votre assistant intelligent disponible 24/7 pour répondre à toutes les questions de vos clientes sur vos collections, services et conseils bijoux.
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo-text">💎 Les Pipelettes</div>
+      <div class="header-badge">🎁 Démo Gratuite</div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Votre Assistant IA <span class="brand">Les Pipelettes</span></h1>
+    <p>
+      Découvrez votre assistant intelligent disponible 24/7 pour répondre à toutes les questions 
+      de vos clientes sur vos collections, services et conseils bijoux.
     </p>
+    <button class="cta-primary" onclick="alert('👋 Cliquez sur le bouton 💬 en bas à droite pour tester l\'assistant !')">
+      ✨ Tester l'assistant maintenant
+    </button>
+  </div>
 
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">🤖</div>
-        <div class="feature-title">Intelligence Artificielle</div>
-        <div class="feature-desc">Propulsé par GPT-4, votre assistant comprend les besoins de vos clientes et répond avec expertise.</div>
-      </div>
-      
-      <div class="feature">
-        <div class="feature-icon">💬</div>
-        <div class="feature-title">Mémoire de conversation</div>
-        <div class="feature-desc">Le bot se souvient de chaque conversation pour une expérience personnalisée et fluide.</div>
-      </div>
-      
-      <div class="feature">
-        <div class="feature-icon">⚡</div>
-        <div class="feature-title">Disponibilité 24/7</div>
-        <div class="feature-desc">Vos clientes obtiennent des réponses instantanées, même en dehors de vos horaires d'ouverture.</div>
+  <!-- Contenu principal -->
+  <div class="container">
+    <div class="content-box">
+      <h2>✨ Pourquoi un assistant IA pour <span class="brand">Les Pipelettes</span> ?</h2>
+
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">🤖</span>
+          <div class="feature-title">Intelligence Artificielle</div>
+          <div class="feature-desc">Propulsé par GPT-4, votre assistant comprend les besoins de vos clientes et répond avec expertise sur vos bijoux en acier inoxydable.</div>
+        </div>
+        
+        <div class="feature">
+          <span class="feature-icon">💬</span>
+          <div class="feature-title">Mémoire de conversation</div>
+          <div class="feature-desc">Le bot se souvient de chaque conversation pour une expérience personnalisée et fluide, comme une vraie vendeuse.</div>
+        </div>
+        
+        <div class="feature">
+          <span class="feature-icon">⚡</span>
+          <div class="feature-title">Disponibilité 24/7</div>
+          <div class="feature-desc">Vos clientes obtiennent des réponses instantanées, même en dehors de vos horaires d'ouverture (10h30-19h00).</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">✨</span>
+          <div class="feature-title">Personnalisé pour vous</div>
+          <div class="feature-desc">Adapté à votre ton chaleureux, vos collections (Nébuleuse, best-sellers) et vos services. Redirige vers votre équipe quand nécessaire.</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">📊</span>
+          <div class="feature-title">Analytics & Insights</div>
+          <div class="feature-desc">Comprenez ce que cherchent vos clientes grâce aux données des conversations (prix, styles, occasions).</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">💰</span>
+          <div class="feature-title">ROI immédiat</div>
+          <div class="feature-desc">Captez plus de leads, réduisez les appels répétitifs et augmentez vos ventes sans embaucher.</div>
+        </div>
       </div>
 
-      <div class="feature">
-        <div class="feature-icon">✨</div>
-        <div class="feature-title">Personnalisé pour vous</div>
-        <div class="feature-desc">Adapté à votre ton, vos collections et vos services. Redirige vers votre équipe quand nécessaire.</div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">📊</div>
-        <div class="feature-title">Analytics & Insights</div>
-        <div class="feature-desc">Comprenez ce que cherchent vos clientes grâce aux données des conversations.</div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">💰</div>
-        <div class="feature-title">ROI immédiat</div>
-        <div class="feature-desc">Captez plus de leads, réduisez les appels répétitifs et augmentez vos ventes.</div>
+      <!-- Informations pratiques -->
+      <div class="info-section">
+        <h2>📍 Connaît parfaitement <span class="brand">Les Pipelettes</span></h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-label">Adresse</div>
+            <div class="info-value">43 Rue des Tourneurs<br>31000 Toulouse</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div class="info-label">Horaires</div>
+            <div class="info-value">Mar-Sam 10h30-19h<br>Dim-Lun Fermé</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">💎</div>
+            <div class="info-label">Collections</div>
+            <div class="info-value">Acier inoxydable<br>25€-35€</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🎁</div>
+            <div class="info-label">Services</div>
+            <div class="info-value">Garantie 6 mois<br>Livraison gratuite dès 50€</div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
-    <button class="cta" onclick="alert('👋 Cliquez sur le bouton 💬 en bas à droite pour tester l\'assistant !')">
-      Testez l'assistant maintenant
-      <span class="arrow">→</span>
-    </button>
+  <!-- Footer -->
+  <div class="footer">
+    Prototype créé par Sofiane • TBS Business School • Spécialiste IA
   </div>
 
   <script 
