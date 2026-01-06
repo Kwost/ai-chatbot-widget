@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant IA - La Pépite | Démo Interactive</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: white;
+      border-radius: 24px;
+      padding: 60px 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 64px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 42px;
+      color: #1f2937;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .brand {
+      color: #764ba2;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #6b7280;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+      text-align: left;
+    }
+
+    .feature {
+      padding: 24px;
+      background: #f5f3ff;
+      border-radius: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 2px solid #e9d5ff;
+    }
+
+    .feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(118, 75, 162, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 30px;
+      box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(102, 126, 234, 0.5);
+    }
+
+    .arrow {
+      font-size: 24px;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    .demo-badge {
+      display: inline-block;
+      background: #764ba2;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 16px;
+      }
+
+      .container {
+        padding: 32px 20px;
+        border-radius: 16px;
+      }
+
+      .logo {
+        font-size: 48px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 30px 0;
+      }
+
+      .feature {
+        padding: 20px;
+      }
+
+      .feature-icon {
+        font-size: 28px;
+      }
+
+      .feature-title {
+        font-size: 16px;
+      }
+
+      .feature-desc {
+        font-size: 13px;
+      }
+
+      .cta {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 28px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="demo-badge">💎 Démo Exclusive</div>
+    <div class="logo">✨</div>
+    <h1>Assistant IA <span class="brand">La Pépite</span></h1>
+    <p class="subtitle">
+      Découvrez votre assistant intelligent disponible 24/7 pour offrir une expérience client d'exception et valoriser vos créations uniques.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">Intelligence Artificielle Premium</div>
+        <div class="feature-desc">Propulsé par GPT-4, votre assistant comprend les attentes raffinées de votre clientèle.</div>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <div class="feature-title">Expérience personnalisée</div>
+        <div class="feature-desc">Chaque conversation est mémorisée pour créer un parcours client sur-mesure.</div>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Disponibilité permanente</div>
+        <div class="feature-desc">Vos clientes reçoivent des réponses instantanées, à toute heure du jour et de la nuit.</div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <div class="feature-title">Ton élégant et raffiné</div>
+        <div class="feature-desc">Adapté à l'univers sophistiqué de La Pépite, avec l'expertise d'un conseiller en joaillerie.</div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Insights clients précieux</div>
+        <div class="feature-desc">Comprenez les désirs et attentes de votre clientèle grâce aux données collectées.</div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💰</div>
+        <div class="feature-title">Valorisation de vos pièces</div>
+        <div class="feature-desc">Augmentez vos conversions en guidant chaque cliente vers son bijou idéal.</div>
+      </div>
+    </div>
+
+    <button class="cta" onclick="alert('👋 Cliquez sur le bouton 💬 en bas à droite pour découvrir l\'assistant !')">
+      Découvrir l'assistant
+      <span class="arrow">→</span>
+    </button>
+  </div>
+
+  <script 
+    src="https://ai-chatbot-widget-kzh9.onrender.com/widget.js"
+    data-client-id="lapepite">
+  </script>
+</body>
+</html>
