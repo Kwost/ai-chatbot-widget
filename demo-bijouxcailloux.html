@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assistant IA - Bijoux Cailloux | Démo Interactive</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,19 +13,20 @@
     }
 
     body {
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #fff;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
       min-height: 100vh;
     }
 
-    /* Header avec logo */
+    /* Header élégant */
     .header {
-      background: linear-gradient(135deg, #FF6B9D 0%, #FFA06B 100%);
-      padding: 20px 40px;
-      box-shadow: 0 4px 12px rgba(255, 107, 157, 0.2);
+      background: #1a1a1a;
+      padding: 18px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: 3px solid #d4a574;
     }
 
     .header-content {
@@ -39,35 +40,37 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 15px;
     }
 
     .logo-icon {
-      font-size: 32px;
+      font-size: 36px;
+      filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.4));
     }
 
     .logo-text {
-      font-size: 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
       font-weight: 700;
       color: white;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
     .header-badge {
-      background: white;
-      color: #FF6B9D;
+      background: linear-gradient(135deg, #d4a574 0%, #e8c89f 100%);
+      color: #1a1a1a;
       padding: 8px 20px;
-      border-radius: 25px;
-      font-size: 13px;
+      border-radius: 20px;
+      font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
-    /* Hero Section */
+    /* Hero Section - Style luxe chaud */
     .hero {
-      background: linear-gradient(135deg, #FF6B9D 0%, #FFA06B 100%);
-      padding: 80px 20px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      padding: 100px 20px;
       text-align: center;
       color: white;
       position: relative;
@@ -81,8 +84,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-      background-size: cover;
+      background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
     }
 
     .hero-content {
@@ -90,188 +92,257 @@
       z-index: 1;
     }
 
+    .hero .subtitle-small {
+      font-size: 14px;
+      color: #d4a574;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
     .hero h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-
-    .hero .emoji {
+      font-family: 'Playfair Display', serif;
       font-size: 56px;
-      margin-bottom: 20px;
-      display: block;
-      animation: bounce 2s infinite;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .hero .accent {
+      color: #d4a574;
+      font-style: italic;
     }
 
     .hero p {
-      font-size: 20px;
+      font-size: 19px;
       max-width: 700px;
-      margin: 0 auto 40px;
-      opacity: 0.95;
-      line-height: 1.6;
+      margin: 0 auto 50px;
+      opacity: 0.9;
+      line-height: 1.7;
       font-weight: 300;
     }
 
     .cta-primary {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 18px 40px;
-      background: white;
-      color: #FF6B9D;
+      gap: 12px;
+      padding: 18px 45px;
+      background: linear-gradient(135deg, #d4a574 0%, #e8c89f 100%);
+      color: #1a1a1a;
       border-radius: 50px;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       border: none;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .cta-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
     }
 
     /* Container principal */
     .container {
       max-width: 1200px;
-      margin: -60px auto 60px;
+      margin: -80px auto 80px;
       padding: 0 20px;
       position: relative;
       z-index: 10;
     }
 
-    /* Section blanche */
+    /* Section blanche élégante */
     .content-box {
       background: white;
-      border-radius: 30px;
-      padding: 60px 40px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border-radius: 24px;
+      padding: 70px 50px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
-      font-size: 36px;
-      color: #1f2937;
-      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #1a1a1a;
+      margin-bottom: 20px;
       text-align: center;
       font-weight: 700;
     }
 
-    .subtitle {
+    .subtitle-section {
       text-align: center;
       font-size: 18px;
-      color: #6b7280;
+      color: #666;
       max-width: 800px;
-      margin: 0 auto 50px;
-      line-height: 1.7;
+      margin: 0 auto 60px;
+      line-height: 1.8;
     }
 
     .brand {
-      background: linear-gradient(135deg, #FF6B9D 0%, #FFA06B 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
+      color: #d4a574;
+      font-weight: 600;
     }
 
-    /* Features Grid */
+    /* Features Grid - Plus élégant */
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      margin: 50px 0;
+      margin: 60px 0;
     }
 
     .feature {
-      padding: 35px 30px;
-      background: linear-gradient(135deg, #FFF5F9 0%, #FFF9F5 100%);
-      border-radius: 20px;
-      transition: all 0.3s ease;
-      border: 2px solid rgba(255, 107, 157, 0.1);
+      padding: 40px 35px;
+      background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+      border-radius: 16px;
+      transition: all 0.4s ease;
+      border: 2px solid #f0f0f0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #d4a574 0%, #e8c89f 100%);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
 
     .feature:hover {
       transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(255, 107, 157, 0.15);
-      border-color: rgba(255, 107, 157, 0.3);
+      box-shadow: 0 15px 40px rgba(212, 165, 116, 0.15);
+      border-color: #d4a574;
+    }
+
+    .feature:hover::before {
+      transform: scaleX(1);
     }
 
     .feature-icon {
       font-size: 48px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       display: block;
+      filter: grayscale(0.2);
     }
 
     .feature-title {
-      font-size: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
       font-weight: 700;
-      color: #1f2937;
-      margin-bottom: 12px;
+      color: #1a1a1a;
+      margin-bottom: 15px;
     }
 
     .feature-desc {
       font-size: 15px;
-      color: #6b7280;
-      line-height: 1.7;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* Highlight Section */
+    .highlight-section {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      padding: 60px 50px;
+      border-radius: 20px;
+      margin-top: 60px;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+    }
+
+    .highlight-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #d4a574;
+      position: relative;
+      z-index: 1;
+    }
+
+    .highlight-text {
+      font-size: 17px;
+      line-height: 1.9;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
     }
 
     /* Info Section */
     .info-section {
-      background: linear-gradient(135deg, #FFF5F9 0%, #FFF9F5 100%);
-      padding: 50px;
-      border-radius: 25px;
-      margin-top: 50px;
-      text-align: center;
+      background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+      padding: 60px 50px;
+      border-radius: 20px;
+      margin-top: 60px;
+      border: 2px solid #f0f0f0;
+    }
+
+    .info-section h2 {
+      margin-bottom: 50px;
     }
 
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
     }
 
     .info-item {
       text-align: center;
+      padding: 20px;
     }
 
     .info-icon {
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 40px;
+      margin-bottom: 15px;
+      filter: grayscale(0.2);
     }
 
     .info-label {
-      font-size: 14px;
-      color: #FF6B9D;
+      font-size: 13px;
+      color: #d4a574;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
     }
 
     .info-value {
       font-size: 16px;
-      color: #1f2937;
+      color: #1a1a1a;
       font-weight: 500;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     /* Footer */
     .footer {
       text-align: center;
-      padding: 40px 20px;
-      color: #6b7280;
+      padding: 50px 20px;
+      color: #999;
       font-size: 14px;
-      margin-top: 60px;
       border-top: 1px solid #e5e7eb;
+      margin-top: 80px;
     }
 
     /* Responsive */
@@ -281,28 +352,24 @@
       }
 
       .logo-text {
-        font-size: 22px;
+        font-size: 24px;
       }
 
       .logo-icon {
-        font-size: 28px;
+        font-size: 30px;
       }
 
       .header-badge {
-        font-size: 11px;
+        font-size: 10px;
         padding: 6px 14px;
       }
 
       .hero {
-        padding: 60px 20px;
+        padding: 70px 20px;
       }
 
       .hero h1 {
-        font-size: 32px;
-      }
-
-      .hero .emoji {
-        font-size: 42px;
+        font-size: 36px;
       }
 
       .hero p {
@@ -312,51 +379,63 @@
       .cta-primary {
         width: 100%;
         justify-content: center;
-        padding: 16px 32px;
-        font-size: 16px;
+        padding: 16px 35px;
+        font-size: 15px;
       }
 
       .container {
-        margin: -40px 20px 40px;
+        margin: -50px 20px 50px;
       }
 
       .content-box {
-        padding: 40px 25px;
-        border-radius: 20px;
+        padding: 45px 30px;
+        border-radius: 18px;
       }
 
       h2 {
-        font-size: 28px;
+        font-size: 32px;
       }
 
-      .subtitle {
+      .subtitle-section {
         font-size: 16px;
       }
 
       .features {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
       }
 
       .feature {
-        padding: 28px 24px;
+        padding: 35px 28px;
+      }
+
+      .highlight-section {
+        padding: 40px 30px;
+      }
+
+      .highlight-section h3 {
+        font-size: 28px;
+      }
+
+      .highlight-text {
+        font-size: 15px;
       }
 
       .info-section {
-        padding: 35px 25px;
+        padding: 45px 30px;
       }
 
       .info-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 30px;
       }
     }
 
-    /* Animation */
+    /* Animation raffinée */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -365,7 +444,7 @@
     }
 
     .feature {
-      animation: fadeInUp 0.6s ease backwards;
+      animation: fadeInUp 0.7s ease backwards;
     }
 
     .feature:nth-child(1) { animation-delay: 0.1s; }
@@ -384,20 +463,21 @@
         <span class="logo-icon">💎</span>
         <div class="logo-text">Bijoux Cailloux</div>
       </div>
-      <div class="header-badge">✨ Démo Gratuite</div>
+      <div class="header-badge">✨ Démo Exclusive</div>
     </div>
   </div>
 
   <!-- Hero Section -->
   <div class="hero">
     <div class="hero-content">
-      <span class="emoji">☀️</span>
-      <h1>Votre Assistant IA <span class="brand">Bijoux Cailloux</span></h1>
+      <div class="subtitle-small">Depuis 1991</div>
+      <h1>Votre Assistant Virtuel<br><span class="accent">Bijoux Cailloux</span></h1>
       <p>
-        Découvrez votre assistant intelligent disponible 24/7 pour conseiller vos clientes sur vos collections colorées et tendance depuis 1991 !
+        Offrez une expérience shopping colorée et chaleureuse avec votre assistant intelligent disponible 24/7.
+        Reflétez l'ambiance pétillante du Sud-Ouest et vos 30 ans d'expertise.
       </p>
-      <button class="cta-primary" onclick="alert('👋 Cliquez sur le bouton 💬 en bas à droite pour tester l\'assistant !')">
-        ☀️ Tester l'assistant maintenant
+      <button class="cta-primary" onclick="alert('👋 Cliquez sur le bouton 💬 en bas à droite pour découvrir l\'assistant !')">
+        ☀️ Découvrir l'assistant
       </button>
     </div>
   </div>
@@ -405,72 +485,82 @@
   <!-- Contenu principal -->
   <div class="container">
     <div class="content-box">
-      <h2>✨ Pourquoi un assistant IA pour <span class="brand">Bijoux Cailloux</span> ?</h2>
-      <p class="subtitle">
-        Un assistant intelligent qui reflète votre ambiance chaleureuse du Sud-Ouest et accompagne vos clientes dans leur shopping coloré ☀️
+      <h2>L'Excellence au Service de <span class="brand">Bijoux Cailloux</span></h2>
+      <p class="subtitle-section">
+        Un assistant intelligent qui capture l'essence de votre boutique : chaleureuse, tendance et accessible.
+        Pour accompagner chaque cliente dans son shopping coloré ☀️
       </p>
 
       <div class="features">
         <div class="feature">
           <span class="feature-icon">🤖</span>
-          <div class="feature-title">Intelligence Artificielle</div>
-          <div class="feature-desc">Propulsé par GPT-4, votre assistant connaît parfaitement vos collections (acier inoxydable, plaqué or, pierres naturelles) et conseille avec enthousiasme.</div>
+          <div class="feature-title">Intelligence Premium</div>
+          <div class="feature-desc">Propulsé par GPT-4, connaît parfaitement vos collections acier inoxydable, plaqué or et pierres naturelles avec un ton chaleureux.</div>
         </div>
         
         <div class="feature">
           <span class="feature-icon">💬</span>
-          <div class="feature-title">Mémoire de conversation</div>
-          <div class="feature-desc">Le bot se souvient de chaque échange pour une expérience personnalisée et fluide, comme avec une vraie conseillère en boutique.</div>
+          <div class="feature-title">Expérience Personnalisée</div>
+          <div class="feature-desc">Mémoire de conversation pour créer un parcours client unique, comme une vraie conseillère en boutique.</div>
         </div>
         
         <div class="feature">
           <span class="feature-icon">⚡</span>
-          <div class="feature-title">Disponibilité 24/7</div>
-          <div class="feature-desc">Vos clientes obtiennent des réponses instantanées, même quand la boutique est fermée. Captez des leads à toute heure !</div>
+          <div class="feature-title">Disponibilité Permanente</div>
+          <div class="feature-desc">Vos clientes reçoivent des réponses expertes 24/7, même hors horaires d'ouverture. Captez des leads à toute heure.</div>
         </div>
 
         <div class="feature">
           <span class="feature-icon">☀️</span>
-          <div class="feature-title">Ton chaleureux Sud-Ouest</div>
-          <div class="feature-desc">Adapté à votre style pétillant et coloré. L'assistant reflète l'ambiance "shopping entre amis" de vos 30 ans d'expertise.</div>
+          <div class="feature-title">Ton Sud-Ouest</div>
+          <div class="feature-desc">Adapté à votre style pétillant et coloré. L'assistant reflète l'ambiance "shopping entre amis" de votre boutique toulousaine.</div>
         </div>
 
         <div class="feature">
           <span class="feature-icon">📊</span>
-          <div class="feature-title">Analytics & Insights</div>
-          <div class="feature-desc">Comprenez ce que cherchent vos clientes : budgets, styles, occasions. Données précieuses pour vos futures collections.</div>
+          <div class="feature-title">Insights Précieux</div>
+          <div class="feature-desc">Comprenez les désirs et budgets de votre clientèle pour affiner vos futures collections et votre stock.</div>
         </div>
 
         <div class="feature">
           <span class="feature-icon">💰</span>
-          <div class="feature-title">ROI immédiat</div>
-          <div class="feature-desc">Captez des leads même hors horaires, réduisez les appels répétitifs, augmentez vos conversions sans embaucher.</div>
+          <div class="feature-title">ROI Immédiat</div>
+          <div class="feature-desc">Augmentez vos conversions en guidant chaque cliente vers son bijou idéal, sans embaucher de personnel supplémentaire.</div>
         </div>
       </div>
 
-      <!-- Informations boutique -->
+      <!-- Section heritage -->
+      <div class="highlight-section">
+        <h3>30 Ans d'Expertise Bijoux</h3>
+        <p class="highlight-text">
+          Depuis 1991, Bijoux Cailloux crée des collections à la pointe de la mode pour répondre à toutes les tendances et féminités. 
+          De l'acier inoxydable à partir de 12€ au plaqué or et argent 925, votre boutique propose des bijoux résistants à l'eau, 
+          hypoallergéniques et garantis sans nickel. Votre assistant virtuel connaît cet héritage et le transmet avec enthousiasme ☀️
+        </p>
+      </div>
+
+      <!-- Informations pratiques -->
       <div class="info-section">
-        <h2>📍 Connaît parfaitement <span class="brand">Bijoux Cailloux</span></h2>
+        <h2>📍 Maîtrise Parfaite de <span class="brand">Bijoux Cailloux</span></h2>
         <div class="info-grid">
           <div class="info-item">
             <div class="info-icon">📍</div>
-            <div class="info-label">Adresse</div>
-            <div class="info-value">14 bis rue des Puits Clos<br>31000 Toulouse</div>
+            <div class="info-label">Adresse Toulouse</div>
+            <div class="info-value">14 bis rue des Puits Clos<br>31000 Toulouse<br>☎️ 05 34 33 93 18</div>
           </div>
           <div class="info-item">
             <div class="info-icon">🕐</div>
             <div class="info-label">Horaires</div>
-            <div class="info-value">Ouvert tous les jours<br>à partir de 10h</div>
+            <div class="info-value">Ouvert tous les jours<br>à partir de 10h<br>Près du Capitole</div>
           </div>
           <div class="info-item">
             <div class="info-icon">💎</div>
             <div class="info-label">Collections</div>
-            <div class="info-value">Acier inoxydable dès 12€<br>Plaqué or & Argent 925</div>
+            <div class="info-value">Acier dès 12€<br>Plaqué or & Argent 925<br>Pierres naturelles</div>
           </div>
           <div class="info-item">
-            <div class="info-icon">📦</div>
-            <div class="info-label">Livraison</div>
-            <div class="info-value">Gratuite dès 20€<br>Expédition 24-72h</div>
+            <div class="info-label">Services</div>
+            <div class="info-value">Livraison gratuite dès 20€<br>Bracelets éternels<br>Bar à Charms<br>Click & Collect</div>
           </div>
         </div>
       </div>
@@ -479,7 +569,7 @@
 
   <!-- Footer -->
   <div class="footer">
-    Prototype créé par Nexa Breach™ • Spécialiste IA
+    Prototype créé par Nexa Breach™ • Spécialiste Intelligence Artificielle
   </div>
 
   <script 
