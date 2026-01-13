@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant IA - Monsieur Le Joaillier | Création Sur-Mesure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0a0a0a;
+      min-height: 100vh;
+      color: #ffffff;
+    }
+
+    /* Header noir élégant */
+    .header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(197, 161, 112, 0.2);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #c5a170 0%, #8b7355 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 20px rgba(197, 161, 112, 0.3);
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: #c5a170;
+      letter-spacing: 2px;
+    }
+
+    .header-badge {
+      padding: 8px 24px;
+      border: 1px solid #c5a170;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #c5a170;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Hero Section - Full screen luxe */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(197, 161, 112, 0.1) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: #c5a170;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 300;
+      margin-bottom: 30px;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    .hero h1 .accent {
+      font-weight: 700;
+      color: #c5a170;
+      display: block;
+      font-style: italic;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 50px;
+      font-weight: 300;
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px 50px;
+      background: transparent;
+      color: #c5a170;
+      border: 2px solid #c5a170;
+      border-radius: 0;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: #c5a170;
+      transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
+
+    .cta-primary:hover {
+      color: #0a0a0a;
+    }
+
+    .cta-primary:hover::before {
+      left: 0;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(197, 161, 112, 0.5), transparent);
+    }
+
+    /* Section content */
+    .section {
+      padding: 120px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: #c5a170;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    .section-title .accent {
+      color: #c5a170;
+      font-weight: 600;
+    }
+
+    .section-description {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* Features grid luxe */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(197, 161, 112, 0.1);
+      padding: 2px;
+    }
+
+    .feature {
+      background: #0a0a0a;
+      padding: 60px 40px;
+      text-align: center;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(197, 161, 112, 0.05) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .feature:hover::before {
+      opacity: 1;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+      background: #1a1a1a;
+    }
+
+    .feature-icon {
+      font-size: 42px;
+      margin-bottom: 30px;
+      display: block;
+      filter: grayscale(0.3);
+    }
+
+    .feature-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #c5a170;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+    }
+
+    /* Process Section */
+    .process-section {
+      background: #1a1a1a;
+      padding: 120px 20px;
+      position: relative;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .process-step::after {
+      content: '';
+      position: absolute;
+      top: 25px;
+      right: -40px;
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(to right, rgba(197, 161, 112, 0.3), transparent);
+    }
+
+    .process-step:last-child::after {
+      display: none;
+    }
+
+    .process-number {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(197, 161, 112, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: #c5a170;
+      transition: all 0.4s;
+    }
+
+    .process-step:hover .process-number {
+      background: #c5a170;
+      color: #0a0a0a;
+      border-color: #c5a170;
+    }
+
+    .process-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .process-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 300;
+    }
+
+    /* Info section */
+    .info-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 60px;
+    }
+
+    .info-item {
+      text-align: center;
+      padding: 40px 20px;
+      border: 1px solid rgba(197, 161, 112, 0.1);
+      transition: all 0.4s;
+    }
+
+    .info-item:hover {
+      border-color: rgba(197, 161, 112, 0.3);
+      background: rgba(197, 161, 112, 0.02);
+    }
+
+    .info-icon {
+      font-size: 36px;
+      margin-bottom: 20px;
+      filter: grayscale(0.3);
+    }
+
+    .info-label {
+      font-size: 11px;
+      color: #c5a170;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .info-value {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 60px 20px;
+      border-top: 1px solid rgba(197, 161, 112, 0.1);
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-step::after {
+        display: none;
+      }
+
+      .info-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 20px;
+      }
+
+      .logo-text {
+        font-size: 20px;
+      }
+
+      .header-badge {
+        display: none;
+      }
+
+      .hero {
+        height: auto;
+        padding: 120px 20px 80px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .cta-primary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .section {
+        padding: 80px 20px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .info-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature {
+      animation: fadeInUp 0.8s ease backwards;
+    }
+
+    .feature:nth-child(1) { animation-delay: 0.1s; }
+    .feature:nth-child(2) { animation-delay: 0.2s; }
+    .feature:nth-child(3) { animation-delay: 0.3s; }
+    .feature:nth-child(4) { animation-delay: 0.4s; }
+    .feature:nth-child(5) { animation-delay: 0.5s; }
+    .feature:nth-child(6) { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo-container">
+        <div class="logo-icon">💎</div>
+        <div class="logo-text">MONSIEUR LE JOAILLIER</div>
+      </div>
+      <div class="header-badge">Démo Exclusive</div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-subtitle">Joaillier Créateur • Toulouse</div>
+      <h1>
+        L'Art de la Création
+        <span class="accent">Sur-Mesure</span>
+      </h1>
+      <p class="hero-description">
+        Votre assistant intelligent, ambassadeur de notre savoir-faire joaillier.
+        Disponible 24/7 pour conseiller avec expertise sur nos créations uniques.
+      </p>
+      <button class="cta-primary" onclick="alert('💬 Cliquez sur le bouton chat en bas à droite pour découvrir l\'assistant')">
+        Découvrir l'assistant
+      </button>
+    </div>
+    <div class="scroll-indicator">
+      Découvrir
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-subtitle">Excellence Artisanale</div>
+      <h2 class="section-title">Un Assistant à l'Image de<br><span class="accent">Votre Savoir-Faire</span></h2>
+      <p class="section-description">
+        Reflet digital de votre expertise joaillière, cet assistant intelligent accompagne
+        vos clients dans la découverte de vos créations avec la même élégance et précision.
+      </p>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">💎</span>
+        <div class="feature-title">Expertise Joaillère</div>
+        <div class="feature-desc">Propulsé par GPT-4, connaît parfaitement votre processus de création, vos matériaux nobles et votre approche sur-mesure.</div>
+      </div>
+      
+      <div class="feature">
+        <span class="feature-icon">✨</span>
+        <div class="feature-title">Ton Raffiné</div>
+        <div class="feature-desc">Vocabulaire précis de joaillerie, élégance dans chaque réponse, valorisation du caractère unique de vos créations.</div>
+      </div>
+      
+      <div class="feature">
+        <span class="feature-icon">🎨</span>
+        <div class="feature-title">Conseil Personnalisé</div>
+        <div class="feature-desc">Guide vos clients vers la création parfaite selon leurs désirs, budget et occasion (fiançailles, alliances, pièces uniques).</div>
+      </div>
+
+      <div class="feature">
+        <span class="feature-icon">📅</span>
+        <div class="feature-title">Prise de RDV</div>
+        <div class="feature-desc">Facilite la prise de rendez-vous pour consultations personnalisées dans votre atelier toulousain.</div>
+      </div>
+
+      <div class="feature">
+        <span class="feature-icon">💬</span>
+        <div class="feature-title">Disponibilité 24/7</div>
+        <div class="feature-desc">Répond aux questions même hors horaires d'atelier. Captez des demandes de création à toute heure.</div>
+      </div>
+
+      <div class="feature">
+        <span class="feature-icon">📊</span>
+        <div class="feature-title">Analytics Précieux</div>
+        <div class="feature-desc">Insights sur les demandes de créations, budgets envisagés, occasions. Données stratégiques pour votre atelier.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process Section -->
+  <div class="process-section">
+    <div class="section-header">
+      <div class="section-subtitle">Notre Méthode</div>
+      <h2 class="section-title">Le Processus que<br><span class="accent">Votre Assistant Maîtrise</span></h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-number">01</div>
+        <div class="process-title">Consultation</div>
+        <div class="process-desc">Écoute des désirs et préférences</div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-number">02</div>
+        <div class="process-title">Dessin</div>
+        <div class="process-desc">Esquisse personnalisée</div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-number">03</div>
+        <div class="process-title">Projection 3D</div>
+        <div class="process-desc">Visualisation du rendu final</div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-number">04</div>
+        <div class="process-title">Fabrication</div>
+        <div class="process-desc">Réalisation artisanale à la main</div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-number">05</div>
+        <div class="process-title">Livraison</div>
+        <div class="process-desc">Présentation de la pièce unique</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-section">
+    <div class="info-item">
+      <div class="info-icon">📍</div>
+      <div class="info-label">Atelier Toulousain</div>
+      <div class="info-value">3 rue de la Colombette<br>31000 Toulouse<br>☎ 09 75 53 31 84</div>
+    </div>
+
+    <div class="info-item">
+      <div class="info-icon">🕐</div>
+      <div class="info-label">Horaires</div>
+      <div class="info-value">Mar-Ven 10h-12h<br>& 14h-19h<br>Lun 10h-12h & 14h-19h</div>
+    </div>
+
+    <div class="info-item">
+      <div class="info-icon">💎</div>
+      <div class="info-label">Matériaux Nobles</div>
+      <div class="info-value">Or 18K • Platine<br>Diamants certifiés<br>Pierres précieuses</div>
+    </div>
+
+    <div class="info-item">
+      <div class="info-icon">⭐</div>
+      <div class="info-label">Excellence</div>
+      <div class="info-value">Note 5,0/5<br>50 avis Google<br>Création sur-mesure</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Prototype créé par Nexa Breach™ • Spécialiste Intelligence Artificielle
+  </div>
+
+  <script 
+    src="https://ai-chatbot-widget-kzh9.onrender.com/widget.js"
+    data-client-id="monsieurlejoaillier">
+  </script>
+</body>
+</html>
