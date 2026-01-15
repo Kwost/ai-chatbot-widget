@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant IA - Mademoiselle Nuage | Démo Exclusive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #e1bee7 100%);
+      min-height: 100vh;
+    }
+
+    /* Header nuage */
+    .header {
+      background: white;
+      padding: 20px 40px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      font-size: 36px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ec407a 0%, #ab47bc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-badge {
+      background: linear-gradient(135deg, #ec407a 0%, #ab47bc 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ec407a 0%, #ab47bc 100%);
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '☁️';
+      position: absolute;
+      font-size: 120px;
+      opacity: 0.1;
+      top: 20px;
+      left: 10%;
+      animation: cloudFloat 20s infinite;
+    }
+
+    .hero::after {
+      content: '🌸';
+      position: absolute;
+      font-size: 100px;
+      opacity: 0.1;
+      bottom: 20px;
+      right: 10%;
+      animation: cloudFloat 15s infinite reverse;
+    }
+
+    @keyframes cloudFloat {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(30px) translateY(-20px); }
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 750px;
+      margin: 0 auto 40px;
+      opacity: 0.95;
+      line-height: 1.7;
+      font-weight: 400;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 45px;
+      background: white;
+      color: #ec407a;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    /* Container principal */
+    .container {
+      max-width: 1200px;
+      margin: -60px auto 60px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Section blanche */
+    .content-box {
+      background: white;
+      border-radius: 30px;
+      padding: 60px 40px;
+      box-shadow: 0 20px 60px rgba(236, 64, 122, 0.15);
+    }
+
+    h2 {
+      font-size: 36px;
+      color: #1f2937;
+      margin-bottom: 15px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .subtitle-section {
+      text-align: center;
+      font-size: 18px;
+      color: #6b7280;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      line-height: 1.8;
+    }
+
+    .brand {
+      color: #ec407a;
+      font-weight: 700;
+    }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+
+    .feature {
+      padding: 35px 30px;
+      background: linear-gradient(135deg, #fff5f8 0%, #fef0f5 100%);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(236, 64, 122, 0.1);
+      text-align: center;
+    }
+
+    .feature:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(236, 64, 122, 0.2);
+      border-color: rgba(236, 64, 122, 0.3);
+    }
+
+    .feature-icon {
+      font-size: 52px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: #6b7280;
+      line-height: 1.7;
+    }
+
+    /* Section histoire */
+    .heritage-section {
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+      padding: 50px;
+      border-radius: 25px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .heritage-section h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ec407a;
+      font-weight: 700;
+    }
+
+    .heritage-text {
+      font-size: 17px;
+      line-height: 1.9;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #4a5568;
+    }
+
+    /* Info pratiques */
+    .info-section {
+      background: linear-gradient(135deg, #fff 0%, #fff5f8 100%);
+      padding: 60px 50px;
+      border-radius: 25px;
+      margin-top: 60px;
+      border: 2px solid #fce4ec;
+    }
+
+    .info-section h2 {
+      margin-bottom: 50px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+
+    .info-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .info-icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .info-label {
+      font-size: 13px;
+      color: #ec407a;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .info-value {
+      font-size: 16px;
+      color: #1f2937;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 20px;
+      }
+
+      .logo-text {
+        font-size: 22px;
+      }
+
+      .logo-icon {
+        font-size: 32px;
+      }
+
+      .header-badge {
+        font-size: 11px;
+        padding: 6px 14px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .cta-primary {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 32px;
+        font-size: 16px;
+      }
+
+      .container {
+        margin: -40px 20px 40px;
+      }
+
+      .content-box {
+        padding: 40px 25px;
+        border-radius: 20px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .feature {
+        padding: 28px 24px;
+      }
+
+      .heritage-section {
+        padding: 35px 25px;
+      }
+
+      .info-section {
+        padding: 45px 25px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature {
+      animation: fadeInUp 0.6s ease backwards;
+    }
+
+    .feature:nth-child(1) { animation-delay: 0.1s; }
+    .feature:nth-child(2) { animation-delay: 0.2s; }
+    .feature:nth-child(3) { animation-delay: 0.3s; }
+    .feature:nth-child(4) { animation-delay: 0.4s; }
+    .feature:nth-child(5) { animation-delay: 0.5s; }
+    .feature:nth-child(6) { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo-container">
+        <span class="logo-icon">☁️</span>
+        <div class="logo-text">Mademoiselle Nuage</div>
+      </div>
+      <div class="header-badge">💎 Démo Exclusive</div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Votre Assistant Virtuel <span class="brand">Mademoiselle Nuage</span></h1>
+    <p>
+      Offrez une expérience client magique avec votre assistant IA disponible 24/7.
+      Valorisez vos créations japonaises, vos bracelets permanents et votre savoir-faire artisanal.
+    </p>
+    <button class="cta-primary" onclick="alert('👋 Cliquez sur le bouton 💬 en bas à droite pour découvrir l\'assistant !')">
+      ✨ Découvrir l'assistant
+    </button>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="container">
+    <div class="content-box">
+      <h2>L'Intelligence au Service de <span class="brand">Mademoiselle Nuage</span></h2>
+      <p class="subtitle-section">
+        Un assistant intelligent qui reflète la douceur et la créativité de votre univers,
+        pour accompagner vos clientes dans la découverte de vos bijoux faits main.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">🤖</span>
+          <div class="feature-title">Intelligence Créative</div>
+          <div class="feature-desc">Propulsé par GPT-4, comprend vos collections Hana no kumo et Palm Springs, explique vos inspirations japonaises.</div>
+        </div>
+        
+        <div class="feature">
+          <span class="feature-icon">💬</span>
+          <div class="feature-title">Expérience Personnalisée</div>
+          <div class="feature-desc">Mémorise chaque conversation pour créer un parcours unique, à l'image de vos créations artisanales.</div>
+        </div>
+        
+        <div class="feature">
+          <span class="feature-icon">⚡</span>
+          <div class="feature-title">Disponibilité 24/7</div>
+          <div class="feature-desc">Vos clientes obtiennent des réponses expertes même en dehors de vos horaires d'ouverture (10h30-19h).</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">🌸</span>
+          <div class="feature-title">Ton Poétique</div>
+          <div class="feature-desc">Adapté à votre univers doux et japonais, avec la sensibilité d'une créatrice de bijoux romantiques.</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">✂️</span>
+          <div class="feature-title">Expertise Bracelets Permanents</div>
+          <div class="feature-desc">Explique votre service unique à Toulouse : bracelets permanents soudés, gravure sur place, bijoux faits main.</div>
+        </div>
+
+        <div class="feature">
+          <span class="feature-icon">💰</span>
+          <div class="feature-title">Capture de Leads</div>
+          <div class="feature-desc">Transforme les visiteurs en clientes en capturant l'intérêt 24/7, même la nuit ou le dimanche.</div>
+        </div>
+      </div>
+
+      <!-- Section héritage -->
+      <div class="heritage-section">
+        <h3>🇯🇵 Un Univers Inspiré du Japon</h3>
+        <p class="heritage-text">
+          Depuis 2014, Pauline et son associée créent des bijoux faits main dans leur atelier toulousain. 
+          Avec des collections comme "Hana no kumo" (un nuage de fleurs), elles mêlent inspiration japonaise, 
+          romantisme et savoir-faire artisanal. Vos clientes adorent vos gravures personnalisées et vos 
+          bracelets permanents, exclusivité à Toulouse. Votre assistant IA connaît chaque détail de votre univers poétique.
+        </p>
+      </div>
+
+      <!-- Informations pratiques -->
+      <div class="info-section">
+        <h2>📍 Maîtrise Parfaite de <span class="brand">Mademoiselle Nuage</span></h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-label">Adresse</div>
+            <div class="info-value">11 rue Peyrolières<br>31000 Toulouse<br>Métro Esquirol</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div class="info-label">Horaires</div>
+            <div class="info-value">Lun 14h30-19h<br>Mar-Ven 10h30-13h30/14h30-19h<br>Sam 10h30-19h</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">💎</div>
+            <div class="info-label">Collections</div>
+            <div class="info-value">Bijoux faits main<br>30€-140€<br>Inspiration Japon</div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">✨</div>
+            <div class="info-label">Services</div>
+            <div class="info-value">Bracelets permanents<br>Gravure sur place<br>Fabrication française</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Prototype créé par Nexa Breach™ • Spécialiste IA
+  </div>
+
+  <script 
+    src="https://ai-chatbot-widget-kzh9.onrender.com/widget.js"
+    data-client-id="mademoisellenuage">
+  </script>
+</body>
+</html>
