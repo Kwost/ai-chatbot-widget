@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cati Fieu Bijoux - Créations Artisanales en Pierres Naturelles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; color: #2c2c2c; background: #fafaf8; }
+    h1, h2, h3 { font-family: 'Cinzel', serif; font-weight: 400; }
+
+    header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e8d5c4;
+    }
+
+    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Cinzel', serif; font-size: 28px; color: #8b6f47; letter-spacing: 2px; }
+    nav a { margin-left: 30px; text-decoration: none; color: #2c2c2c; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s; }
+    nav a:hover { color: #8b6f47; }
+
+    .hero {
+      position: relative;
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e8d5c4 0%, #c9b8a3 50%, #a89175 100%);
+      overflow: hidden;
+    }
+
+    .hero-content { position: relative; text-align: center; color: #fff; max-width: 800px; padding: 0 20px; }
+    .hero h1 { font-size: 72px; margin-bottom: 20px; text-shadow: 2px 2px 20px rgba(0,0,0,0.3); letter-spacing: 4px; }
+    .hero p { font-size: 20px; margin-bottom: 40px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.95; }
+    
+    .cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+    .cta-button:hover { background: white; color: #8b6f47; }
+
+    section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: 42px; margin-bottom: 50px; color: #8b6f47; letter-spacing: 2px; }
+
+    .about { background: white; text-align: center; }
+    .about p { max-width: 700px; margin: 0 auto 20px; line-height: 1.8; color: #555; font-size: 16px; }
+
+    .gallery { background: #fafaf8; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+    .gallery-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #e8d5c4 0%, #c9b8a3 100%);
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    .gallery-item:hover { transform: translateY(-10px); }
+
+    .values { background: white; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
+    .value-card { text-align: center; padding: 30px; }
+    .value-icon { font-size: 48px; margin-bottom: 20px; }
+    .value-card h3 { font-size: 22px; margin-bottom: 15px; color: #8b6f47; }
+    .value-card p { color: #666; line-height: 1.6; font-size: 14px; }
+
+    .contact { background: linear-gradient(135deg, #8b6f47 0%, #a89175 100%); color: white; text-align: center; }
+    .contact h2 { color: white; }
+    .contact-info { margin-top: 40px; font-size: 18px; }
+    .contact-info a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.5); transition: border 0.3s; }
+    .contact-info a:hover { border-bottom: 1px solid white; }
+    .social-links { margin-top: 30px; }
+    .social-links a { display: inline-block; margin: 0 15px; color: white; font-size: 32px; transition: transform 0.3s; text-decoration: none; }
+    .social-links a:hover { transform: scale(1.2); }
+
+    footer { background: #2c2c2c; color: white; text-align: center; padding: 30px 20px; font-size: 13px; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 42px; }
+      .hero p { font-size: 16px; }
+      nav { display: none; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="logo">Cati Fieu</div>
+      <nav>
+        <a href="#about">À Propos</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Cati Fieu Bijoux</h1>
+      <p>Créations Artisanales • Pierres Naturelles</p>
+      <a href="#contact" class="cta-button">Découvrir</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="section-title">L'Art de la Création</h2>
+    <p>Cati Fieu Bijoux, c'est l'histoire d'une passion pour les pierres naturelles et le travail artisanal. Chaque création est unique, façonnée avec soin pour célébrer la beauté brute de la nature.</p>
+    <p>Des perles d'eau douce aux quartz rutilants, en passant par le jade et les pierres semi-précieuses, chaque bijou raconte une histoire de couleurs, de textures et d'authenticité.</p>
+    <p><strong>Style bohème • Fait main • Pièces uniques</strong></p>
+  </section>
+
+  <section class="gallery" id="galerie">
+    <h2 class="section-title">Créations</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">💎</div>
+      <div class="gallery-item">🌸</div>
+      <div class="gallery-item">✨</div>
+      <div class="gallery-item">🪨</div>
+      <div class="gallery-item">💫</div>
+      <div class="gallery-item">🌿</div>
+    </div>
+  </section>
+
+  <section class="values">
+    <h2 class="section-title">Nos Valeurs</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">✨</div>
+        <h3>Fait Main</h3>
+        <p>Chaque bijou est créé avec passion dans notre atelier, pièce par pièce.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌍</div>
+        <h3>Pierres Naturelles</h3>
+        <p>Sélection rigoureuse de pierres authentiques pour leur beauté et leur énergie.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💚</div>
+        <h3>Pièces Uniques</h3>
+        <p>Aucune création ne se ressemble. Chaque bijou est une œuvre d'art unique.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-info">
+      <p>📧 <a href="mailto:catifieu@gmail.com">catifieu@gmail.com</a></p>
+      <p style="margin-top: 10px;">💰 Fourchette : 20€ - 50€</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/cati_fieu_bijoux/" target="_blank">📷</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Cati Fieu Bijoux • Créations Artisanales</p>
+    <p style="margin-top: 10px; opacity: 0.7;">Site créé par Nexa Breach™</p>
+  </footer>
+
+  <script 
+    src="https://ai-chatbot-widget-kzh9.onrender.com/widget.js"
+    data-client-id="catifieu">
+  </script>
+
+</body>
+</html>
