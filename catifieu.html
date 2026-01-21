@@ -78,7 +78,7 @@
     .gallery-item:hover { transform: translateY(-10px); }
 
     .values { background: white; }
-    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmin(250px, 1fr)); gap: 40px; margin-top: 50px; }
     .value-card { text-align: center; padding: 30px; }
     .value-icon { font-size: 48px; margin-bottom: 20px; }
     .value-card h3 { font-size: 22px; margin-bottom: 15px; color: #8b6f47; }
@@ -189,25 +189,45 @@
 </html>
 ```
 
----
-
-## ✅ AMÉLIORATIONS AJOUTÉES
-
-1. **Favicon** 💎 (emoji diamant)
-2. **Meta description** pour SEO
-3. **Tout le reste identique** à ton code original
+### 4. Commit
+- Scroll en bas
+- Message : "Add Cati Fieu demo site"
+- Clique **Commit new file**
 
 ---
 
-## 🚀 PROCHAINES ÉTAPES
+## 📋 ÉTAPE 3 : RENDER (3 MIN)
 
-1. **Copie ce code** dans ton fichier HTML
-2. **Push sur GitHub**
-3. **Deploy sur Render**
-4. **Exécute le SQL dans Supabase**
+### 1. Ouvre Render
+- Va sur **render.com**
+- Connecte-toi
 
----
+### 2. New Static Site
+- Dashboard → **New** → **Static Site**
 
-**TON URL SERA :**
+### 3. Connect repo
+- Clique **Connect** à côté de ton repo GitHub
+- Si pas visible → **Configure account** → Autorise Render
+
+### 4. Settings
 ```
-https://CAT.onrender.com
+Name: catifieu-site
+Branch: main
+Build Command: (laisse vide)
+Publish Directory: .
+```
+
+### 5. Create
+- Clique **Create Static Site**
+- Attends 2-3 minutes (ça build)
+
+---
+
+## 🎯 TON URL FINALE
+```
+https://catifieu-site.onrender.com/catifieu.html
+```
+
+Ou renomme le fichier en `index.html` pour avoir :
+```
+https://catifieu-site.onrender.com
